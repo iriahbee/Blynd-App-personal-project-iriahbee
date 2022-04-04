@@ -19,7 +19,7 @@ In the example we have created a simple CRUD (create, read, update and delete) a
 Once the example is up and running, you can hit the below `profile` endpoint:
 
 ```plain
-http://localhost:8080/api/profile
+http://localhost:8080/profile
 ```
 
 and you should be returned some JSON that looks similar to the below (but a bit more squashed):

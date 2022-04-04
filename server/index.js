@@ -8,7 +8,7 @@ const bodyParser = require("body-parser");
 require("./models/Profiles"); //This is just an example. Don't forget to delete this
 
 const app = express();
-
+console.log(process.env.DATABASE_CONNECTION_STRING, "<<<<<<<<<<<<")
 // This is where your API is making its initial connection to the database
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.DATABASE_CONNECTION_STRING, {
