@@ -26,7 +26,7 @@ const generateUser = async () => {
       profile_photo: randAvatar({ size: 200 }),
     };
     const profile = await Profile.create(user);
-    console.log(profile);
+    //console.log(profile);
   }
 };
 

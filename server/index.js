@@ -22,10 +22,9 @@ app.use(bodyParser.json());
 // It's importing and using everything from the profilesRoutes.js file and also passing app as a parameter for profileRoutes to use
 require("./routes/profilesRoutes")(app); 
 
-const {generateUser} = require("./CreateUser")
-generateUser();
 //CREATING USER
-//require("./CreateUser").default
+// const {generateUser} = require("./CreateUser")
+// generateUser();
 
 
 const PORT = process.env.PORT;
