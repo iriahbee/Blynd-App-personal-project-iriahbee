@@ -1,18 +1,19 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import "../src/styles/App.css";
-import HowWeWork from "./components/HowWeWork";
-import SafetyRules from "./components/SafetyRules";
-import Home from "./components/Home";
-import OurMission from "./components/OurMission";
-import NavBar from "./components/NavBar";
+//import "../src/styles/App.css";
+import HowWeWork from "./components/pages/HowWeWork";
+import SafetyRules from "./components/pages/SafetyRules";
+import Home from "./components/pages/Home";
+import OurMission from "./components/pages/OurMission";
+import {Navbar} from "./components/navbar/Navbar.js";
+import SignUp from "./components/Signin";
 
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <NavBar />
+        <Navbar />
 
         <div className="pages">
           <Switch>
@@ -20,6 +21,7 @@ function App() {
             <Route path="/OurMission" component={OurMission} />
             <Route path="/HowWeWork" component={HowWeWork} />
             <Route path="/SafetyRules" component={SafetyRules} />
+            <Route exact path="/SignUp" component={SignUp} />
           </Switch>
         </div>
       </BrowserRouter>
