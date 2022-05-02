@@ -14,6 +14,9 @@ const NavbarContainer = styled.div`
   display: flex;
   align-items: center;
   padding: 0 1.5em;
+  background-color: transparent;
+  margin-top: 0.5%;
+  position: fixed; top: 0; left: 0; z-index: 9999;
 `;
 
 const LeftSection = styled.div`
@@ -22,9 +25,9 @@ const LeftSection = styled.div`
 
 const MiddleSection = styled.div`
   display: flex;
-  flex: 1;
+  flex: 2;
   height: 100%;
-  justify-content: center;
+  justify-content: right;
 `;
 
 const RightSection = styled.div`
@@ -37,7 +40,7 @@ export function Navbar(_props) {
   return (
     <NavbarContainer>
       <LeftSection>
-        <Logo />
+        <Logo href="/"/>
       </LeftSection>
       <MiddleSection>{!isMobile && <NavLinks />}</MiddleSection>
       <RightSection>

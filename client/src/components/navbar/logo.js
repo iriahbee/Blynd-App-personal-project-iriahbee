@@ -12,6 +12,7 @@ const LogoWrapper = styled.div`
 const LogoImg = styled.div`
   width: 150px;
   height: 150px;
+  cursor: pointer;
   img {
     width: 100%;
     height: 100%;
@@ -22,8 +23,8 @@ const LogoImg = styled.div`
   function Logo(props) {
   return (
     <LogoWrapper>
-      <LogoImg>
-        <img src={LogoM} alt="Blynd logo" />
+      <LogoImg href="/">
+        <img src={LogoM} alt="Blynd logo" href="/"/>
       </LogoImg>
     </LogoWrapper>
   );

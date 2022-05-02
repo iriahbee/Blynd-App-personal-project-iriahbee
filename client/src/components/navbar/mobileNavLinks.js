@@ -15,7 +15,7 @@ const LinksWrapper = styled.ul`
   display: flex;
   height: 100%;
   list-style: none;
-  background-color: #fff;
+  background-color: transparent;
   width: 100%;
   flex-direction: column;
   position: fixed;
@@ -43,7 +43,7 @@ const Marginer = styled.div`
   height: 2em;
 `;
 
-  function MobileNavLinks(props) {
+  function MobileNavLinks(_props) {
   const [isOpen, setOpen] = useState(false);
 
   return (
@@ -52,16 +52,16 @@ const Marginer = styled.div`
       {isOpen && (
         <LinksWrapper>
           <LinkItem>
-            <Link href="#">Home</Link>
+            <Link href="/">Home</Link>
           </LinkItem>
           <LinkItem>
-            <Link href="#">How We Work</Link>
+            <Link href="/HowWeWork">How We Work</Link>
           </LinkItem>
           <LinkItem>
-            <Link href="#">Our Mission</Link>
+            <Link href="/OurMission">Our Mission</Link>
           </LinkItem>
           <LinkItem>
-            <Link href="#">Safety & Rules</Link>
+            <Link href="/SafetyRules">Safety & Rules</Link>
           </LinkItem>
           <Marginer />
           <Accessibility />

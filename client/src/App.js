@@ -6,7 +6,7 @@ import SafetyRules from "./components/pages/SafetyRules";
 import Home from "./components/pages/Home";
 import OurMission from "./components/pages/OurMission";
 import {Navbar} from "./components/navbar/Navbar.js";
-import SignUp from "./components/Signin";
+import SignUp from "./components/Signup";
 
 
 function App() {

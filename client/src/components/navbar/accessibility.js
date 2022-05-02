@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 const AccessibilityContainer = styled.div`
   display: flex;
@@ -9,17 +10,17 @@ const AccessibilityContainer = styled.div`
 const RegisterButton = styled.button`
   border: 0;
   outline: 0;
-  padding: 8px 1em;
+  padding: 8px 2em;
   color: #fff;
   font-size: 13px;
   font-weight: 600;
   border-radius: 20px;
-  background-color: #6adf76;
-  background-image: linear-gradient(to right, transparent 0%, #00c9ff 100%);
+  background-color: #C20301;
+  background-image: linear-gradient(to right, transparent 0%, #FC9D92 100%);
   transition: all 240ms ease-in-out;
   cursor: pointer;
   &:hover {
-    background-color: #00c9ff;
+    background-color: #FC9D92;
   }
   &:not(:last-of-type) {
     margin-right: 30px;
@@ -29,19 +30,19 @@ const RegisterButton = styled.button`
 const LoginButton = styled.button`
   border: 0;
   outline: 0;
-  padding: 8px 1em;
+  padding: 8px 2em;
   color: #222;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   border-radius: 20px;
   background-color: transparent;
-  border: 2px solid #00c9ff;
+  border: 2px solid #C20301;
   transition: all 240ms ease-in-out;
   margin-right: 50px;
   cursor: pointer;
   &:hover {
     color: #fff;
-    background-color: #00c9ff;
+    background-color: #C20301;
   }
   &:not(:last-of-type) {
     margin-right: 10px;
@@ -49,9 +50,15 @@ const LoginButton = styled.button`
 `;
 
   function Accessibility(_props) {
+    const history = useHistory();
+
+  	const signUpPage = () => {
+      history.push("../SignUp")
+    }
+  
   return (
     <AccessibilityContainer>
-      <RegisterButton>Register</RegisterButton>
+      <RegisterButton onClick={signUpPage}>Register</RegisterButton>
       <LoginButton>Login</LoginButton>
     </AccessibilityContainer>
   );

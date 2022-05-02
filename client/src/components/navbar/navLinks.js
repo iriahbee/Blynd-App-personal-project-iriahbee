@@ -5,6 +5,7 @@ const NavLinksContainer = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
+  background-color: transparent;
 `;
 
 const LinksWrapper = styled.ul`
@@ -18,16 +19,16 @@ const LinksWrapper = styled.ul`
 const LinkItem = styled.li`
   height: 100%;
   padding: 0 1.1em;
-  color: #222;
-  font-weight: 500;
+  color: #050505;
+  font-weight: 600;
   font-size: 14px;
   align-items: center;
   justify-content: center;
   display: flex;
-  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
   transition: all 220ms ease-in-out;
   &:hover {
-    border-top: 2px solid #2ecc71;
+    border-bottom: 2px solid #C20301;
   }
 `;
 
@@ -37,7 +38,7 @@ const Link = styled.a`
   font-size: inherit;
 `;
 
- function NavLinks(props) {
+function NavLinks(props) {
   return (
     <NavLinksContainer>
       <LinksWrapper>
@@ -45,17 +46,17 @@ const Link = styled.a`
           <Link href="/">Home</Link>
         </LinkItem>
         <LinkItem>
-          <Link href="#">How We Work</Link>
+          <Link href="/HowWeWork">How We Work</Link>
         </LinkItem>
         <LinkItem>
-          <Link href="#">Our Mission</Link>
+          <Link href="/OurMission">Our Mission</Link>
         </LinkItem>
         <LinkItem>
-          <Link href="#">Safety & Rules</Link>
+          <Link href="/SafetyRules">Safety & Rules</Link>
         </LinkItem>
       </LinksWrapper>
     </NavLinksContainer>
   );
 }
 
-export default NavLinks
+export default NavLinks;
