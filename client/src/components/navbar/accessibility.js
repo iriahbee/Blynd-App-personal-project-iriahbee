@@ -53,7 +53,7 @@ const LoginButton = styled.button`
     const history = useHistory();
 
   	const signUpPage = () => {
-      history.push("../SignUp")
+      history.push("../signup/Signup.js")
     }
   
   return (

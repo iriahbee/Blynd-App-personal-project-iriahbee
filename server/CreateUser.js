@@ -9,7 +9,8 @@ const
   randRole,
   randLine,
   randNumber,
-  randAvatar}
+  randAvatar,
+  randBetweenDate}
  = require ("@ngneat/falso");
 
 const generateUser = async () => {
@@ -24,6 +25,8 @@ const generateUser = async () => {
       profile_description: randLine({ lineCount: 8 }),
       location: randCity(),
       profile_photo: randAvatar({ size: 200 }),
+      birth_date: randBetweenDate({ from: new Date('01/01/1970'), to: new Date('31/12/2003') }),
+       
     };
     const profile = await Profile.create(user);
     //console.log(profile);

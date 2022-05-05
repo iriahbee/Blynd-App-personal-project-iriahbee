@@ -64,9 +64,9 @@ const CTA = styled.div`
 
 const Description = styled.h1`
 color: hsla(0, 0%, 95.3%, 1);
-font-size: 40px;
+font-size: 50px;
 margin: 0 0 24px;
-line-height: 1.5em;
+line-height: 3em;
 letter-spacing: 1.5;
 text-shadow: 2px 2px 4px #000000;
 
@@ -95,7 +95,7 @@ function Home() {
   const history = useHistory();
 
   const signUpPage = () => {
-    history.push("../SignUp");
+    history.push("../signup/Signup.js");
   };
   return (
     <GSBContainer>
