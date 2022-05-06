@@ -41,51 +41,51 @@ const profileSchema = new Schema({
   received_messages: { type: String }  
 });
 
-const MatchSchema = new Schema({
-  userId: { type: Schema.Types.ObjectId, ref: 'User', required: true } ,
-  targetId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-  isLiked: { type: Boolean, default: true },
-  createdAt: { type: Date },
-  updatedAt: { type: Date }
-});
+// const MatchSchema = new Schema({
+//   userId: { type: Schema.Types.ObjectId, ref: 'User', required: true } ,
+//   targetId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+//   isLiked: { type: Boolean, default: true },
+//   createdAt: { type: Date },
+//   updatedAt: { type: Date }
+// });
 
-const messageSchema = new Schema({
-  text: { type: String, default: '' },
-  createdAt: { type: Date, default: Date.now },
-  isUnRead: { type: Boolean, default: true },
-  senderID: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-  receiverID: { type: Schema.Types.ObjectId, ref: 'User', required: true }
-});
+// const messageSchema = new Schema({
+//   text: { type: String, default: '' },
+//   createdAt: { type: Date, default: Date.now },
+//   isUnRead: { type: Boolean, default: true },
+//   senderID: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+//   receiverID: { type: Schema.Types.ObjectId, ref: 'User', required: true }
+// });
 
-const otpSchema = new Schema({
-  phoneNo: { type: String },
-  otp: { type: String }
-});
+// const otpSchema = new Schema({
+//   phoneNo: { type: String },
+//   otp: { type: String }
+// });
 
-const reportSchema = new Schema({
-  userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-  targetId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-  reason: { type: String, default: '' },
-  createdAt: { type: Date },
-  updatedAt: { type: Date }
-});
+// const reportSchema = new Schema({
+//   userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+//   targetId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+//   reason: { type: String, default: '' },
+//   createdAt: { type: Date },
+//   updatedAt: { type: Date }
+// });
 
-const unMatchSchema = new Schema({
-  userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-  targetId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-  reason: { type: String, default: '' },
-  createdAt: { type: Date },
-  updatedAt: { type: Date }
-});
+// const unMatchSchema = new Schema({
+//   userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+//   targetId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+//   reason: { type: String, default: '' },
+//   createdAt: { type: Date },
+//   updatedAt: { type: Date }
+// });
 
-const voteSchema = new Schema({
-  userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-  targetId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-  isLiked: { type: Boolean },
-  isNewMatch: { type: Boolean, default: true },
-  createdAt: { type: Date },
-  updatedAt: { type: Date }
-});
+// const voteSchema = new Schema({
+//   userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+//   targetId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+//   isLiked: { type: Boolean },
+//   isNewMatch: { type: Boolean, default: true },
+//   createdAt: { type: Date },
+//   updatedAt: { type: Date }
+// });
 
 
 

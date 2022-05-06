@@ -9,13 +9,16 @@ import Header from "./Header";
 
 const StyledContainer = styled.div`
  display: flex;
- padding: 4em;
  background: papayawhip;
  flex-direction: column; 
+ align-content: center;
  justify-content: center;
- align-items: center;
+ text-align: center;
+ align-items: center; 
  position: relative;
+ margin-top: 1rem;
 `;
+
 const FormContainer = styled.div`
   display: block;
   background: greenyellow;
