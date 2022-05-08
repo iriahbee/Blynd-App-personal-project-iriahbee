@@ -2,9 +2,9 @@ import { React, useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import styled from "styled-components";
 import UserDetails from "./UserDetails";
-// import PersonalDetails from './PersonalDetails';
+import PersonalDetails from './PersonalDetails';
 // import ProfileDescription from './ProfileDescription';
-// import ProfilePhotos from './ProfilePhotos';
+// import ProfilePhotos from './MatchOptions';
 import Header from "./Header";
 
 const StyledContainer = styled.div`
@@ -24,13 +24,15 @@ const FormContainer = styled.div`
   background: greenyellow;
 `;
 
+
 const SignUpForm = () => (
   <BrowserRouter>
     <StyledContainer>
     <Header />
     <FormContainer>
       <Switch>
-        <Route path="/" component={UserDetails} />
+        <Route component={UserDetails} path="/"/>
+        <Route path="/PersonalDetails" component={PersonalDetails} />
       </Switch>
       </FormContainer>
     </StyledContainer>

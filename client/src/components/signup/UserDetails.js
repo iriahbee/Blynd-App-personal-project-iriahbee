@@ -1,7 +1,10 @@
-import { React, useState } from "react";
+import { React, useRef } from "react";
 import styled from "styled-components";
 import ThemeButton from "../theme/button";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+import { useForm, Controller } from "react-hook-form";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const StyledContainer = styled.div``;
 
@@ -17,80 +20,139 @@ const StyledInput = styled.input`
   outline: none;
 `;
 
-const UserDetails = () => {
-  const [fullname, setfullName] = useState("");
-  const [age, setAge] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confPassword, setConfPassword] = useState("");
+const StyleDatePicker = styled(DatePicker)`
+  background-color: pink;
+  border: none;
+  padding: 10px;
+  border-bottom: 3px solid white;
+  font-size: 2em;
+  color: white;
+  outline: none;
 
-  //function to update state of full name with value
-  const fullNameUpdate = (e) => {
-    setfullName(e.target.value);
-  };
-  //function to update state of age with value
-  const handleAgeChange = (e) => {
-    setAge(e.target.value);
+`;
+
+const UserDetails = (props) => {
+  const {
+    register,
+    handleSubmit,
+    control,
+    watch,
+    formState: { errors },
+  } = useForm({ defaultValues: {
+    full_name: '',
+    phoneNo: '',
+    dateInput:'',
+    birth_date: '',
+    password: '',
+    confpassword: ''
+  }
+});
+
+const password = useRef({});
+password.current = watch("password", "");
+
+const onSubmit = (data) => {
+    console.log(data);
+    //props.history.push('./PersonalDetails');
   };
 
-  // function to update state of email with value
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-  // function to update state of password with
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-  // function to update state of confirm password
 
-  const handleConfPasswordChange = (e) => {
-    setConfPassword(e.target.value);
-  };
 
-  async function handleSubmit (e,props) {
-    if (password !== confPassword) {
-      alert("Password does not match");
-    } else {
-      const postURL = "http://localhost:8080/api/profile/";
-      await fetch(postURL, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          full_name: fullname,
-          email: email,
-          password: password,
-          age: age,
-        }),
-      }).then(() => {
-        props.history.push('./PersonalDetails.js');
-      });
-    }
-    e.preventDefault();
-  };
+
+
 
   return (
     <StyledContainer>
-      <StyledForm onSubmit= {(e)=>{handleSubmit(e)}}>
-      <motion.div
-        className="col-md-6 offset-md-3"
-        initial={{ x: '-100vw' }}
-        animate={{ x: 0 }}
-        transition={{ stiffness: 150 }}
-      >
-        <label>Full Name:</label>
-        <StyledInput required onChange={fullNameUpdate}></StyledInput>
-        <label>Age:</label>
-        <StyledInput required onChange={handleAgeChange}></StyledInput>
-        <label>Email:</label>
-        <StyledInput required onChange={handleEmailChange}></StyledInput>
-        <label>Password:</label>
-        <StyledInput required onChange={handlePasswordChange}></StyledInput>
-        <label>Confirm Password:</label>
-        <StyledInput required onChange={handleConfPasswordChange}></StyledInput>
-        <ThemeButton type="submit">Next</ThemeButton>
+      <StyledForm onSubmit={handleSubmit(onSubmit)}>
+        <motion.div
+          className="col-md-6 offset-md-3"
+          initial={{ x: "-100vw" }}
+          animate={{ x: 0 }}
+          transition={{ stiffness: 150 }}
+        >
+          <label>Full Name:</label>
+          <StyledInput
+            type="text"
+            name= "full_name"
+            placeholder="Full Name"
+            {...register("full_name", {
+              required: true,
+              pattern: {
+                value: /^[a-z A-Z]+$/,
+                message: "Name should contain only characters.",
+              },
+            })}
+          />
+          {errors.full_name && <p>{errors.full_name.message}</p>}
+
+          <label>Mobile Number:</label>
+
+          <StyledInput
+            type="tel"
+            name= "phoneNo"
+            placeholder="Mobile number"
+            {...register("phoneNo", {
+              required: true,
+              minLength: 6,
+              maxLength: 12,
+              message:"Mobile Number is required.",
+            })}
+          />
+          {errors.phoneNo && <p>{errors.phoneNo.message}</p>}
+
+          <label>Birth Date:</label>
+        
+          <Controller
+            control={control}
+            name="dateInput"
+            render={({ field }) => (
+              <StyleDatePicker
+                placeholderText="Select date"
+                onChange={(date) => field.onChange(date)}
+                selected={field.value}
+                dateFormat="dd/MM/yyyy"
+              />
+            )}
+          />
+          {errors.dateInput && <span>This field is required</span>}
+        
+
+          <label>Email:</label>
+          <StyledInput
+            type="text"
+            name= "email"
+            placeholder="Email"
+            {...register("email", { required: true, pattern: /^\S+@\S+$/i,message:"Input a valid email" })}
+          />
+          {errors.email && <p>{errors.email.message}</p>}
+
+          <label>Password:</label>
+          <StyledInput
+            type="password"
+            name="password"
+            placeholder="Password"
+            autoComplete = "on"
+            {...register("password",{ required: true, 
+              minLength: {
+              value: 8,
+              message: "Password must have at least 8 characters" }})}
+          />
+          {errors.password && <p>{errors.password.message}</p>}
+
+          <label>Confirm Password:</label>
+          <StyledInput
+            type="password"
+            name='confpassword'
+            placeholder="Confirm Password"
+            autoComplete = "on"
+            {...register("confpassword", { required: true,  
+              validate: value =>
+              value === password.current || "The passwords do not match"
+               })}
+          />
+           {errors.confpassword && <p>{errors.confpassword.message}</p>}
+
+          <ThemeButton type="submit">Next</ThemeButton>
         </motion.div>
       </StyledForm>
     </StyledContainer>

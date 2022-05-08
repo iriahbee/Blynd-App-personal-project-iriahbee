@@ -13,7 +13,7 @@ const StyledInput = styled.input`
   outline: none;
 `;
 
-const ProfilePhoto = ({ userName, onChange }) => {
+const MatchOptions = ({ userName, onChange }) => {
   return (
     <StyledContainer>
       <p>This is step 3</p>
@@ -27,4 +27,4 @@ const ProfilePhoto = ({ userName, onChange }) => {
   );
 };
 
-export default ProfilePhoto;
+export default MatchOptions;

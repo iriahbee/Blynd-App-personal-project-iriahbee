@@ -1,5 +1,8 @@
 const mongoose = require("mongoose");
 const Profile = mongoose.model("profiles");
+const cors = require('cors')
+
+
 
 const profileRoutes = (app) => {
   app.get(`/profile`, async (req, res) => {
@@ -8,9 +11,9 @@ const profileRoutes = (app) => {
     return res.status(200).send(profiles);
   });
 
-  app.post(`/api/profile`, async (req, res) => {
+  app.post(`/signup`, cors(), async (req, res) => {
     const profile = await Profile.create(req.body);
-
+     console.log(profile)
     return res.status(201).send({
       error: false,
       profile,
