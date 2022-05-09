@@ -20,7 +20,8 @@ const profileSchema = new Schema({
   longitude: Number,
   latitude: Number,
   job: { type: String, default: null },
-  profile_description: String, 
+  profile_description: String,
+  interest: String, 
   profile_photo:  { type: String, default: null },
   pictures: { type: [String] },
   pictures_ids: { type: [String] },
@@ -41,7 +42,7 @@ const profileSchema = new Schema({
   unmatch: { type: String },
   unmatched_by: { type: String },
   sent_messages: { type: String },
-  received_messages: { type: String }  
+  received_messages: { type: String }
 });
 
 // const MatchSchema = new Schema({

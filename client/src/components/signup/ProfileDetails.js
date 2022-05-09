@@ -13,18 +13,15 @@ const StyledInput = styled.input`
   outline: none;
 `;
 
-const MatchOptions = ({ userName, onChange }) => {
+const ProfileDetails = () => {
   return (
     <StyledContainer>
       <p>This is step 3</p>
       <StyledInput
-        value={userName}
-        id="userName"
         type="text"
-        onChange={onChange}
       ></StyledInput>
     </StyledContainer>
   );
 };
 
-export default MatchOptions;
+export default ProfileDetails;

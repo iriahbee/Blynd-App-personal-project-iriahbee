@@ -63,6 +63,10 @@ const Progress = () => {
           <StepDiv>3</StepDiv>
           <div>Step 3</div>
         </StepContainer>
+        <StepContainer>
+          <StepDiv>4</StepDiv>
+          <div>Step 4</div>
+        </StepContainer>
     </StepsContainer>
     </React.Fragment>
   );

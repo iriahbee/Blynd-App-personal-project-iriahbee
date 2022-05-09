@@ -13,18 +13,15 @@ const StyledInput = styled.input`
   outline: none;
 `;
 
-const ProfileDescription = ({ userName, onChange }) => {
+const Terms= () => {
   return (
     <StyledContainer>
-      <p>This is step 0</p>
+      <p>This is step 1</p>
       <StyledInput
-        value={userName}
-        id="userName"
         type="text"
-        onChange={onChange}
       ></StyledInput>
     </StyledContainer>
   );
 };
-
-export default ProfileDescription
+  
+  export default Terms;
