@@ -35,6 +35,7 @@ const profileSchema = new Schema({
   notify_matches: { type: Boolean, default: true },
   notify_messages: { type: Boolean, default: true },
   search_distance: { type: Number, default: 100.0 },
+  preference: String,
   show_male: { type: Boolean, default: true },
   show_female: { type: Boolean, default: true },
   reports: { type: String },

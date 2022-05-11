@@ -7,6 +7,7 @@ import OurMission from "./components/pages/OurMission";
 import { Navbar } from "./components/navbar/Navbar.js";
 import SignUpForm from "./components/signup/Signup";
 import GlobalStyle from "./GlobalStyles";
+import Login from "./components/signin/Signin";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <BrowserRouter>
       <Switch>
       <Route path="/SignUp" component={SignUpForm} />
+      <Route exact path="/login" component={Login} />
             <div>
             <Navbar />
             <Route path="/" exact component={Home} />

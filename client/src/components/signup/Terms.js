@@ -16,10 +16,20 @@ const StyledInput = styled.input`
 const Terms= () => {
   return (
     <StyledContainer>
-      <p>This is step 1</p>
+      <p>I agree to the <b>terms and conditions</b></p>
+
+      
       <StyledInput
-        type="text"
-      ></StyledInput>
+        type="checkbox"
+        name="agree"
+      ><span><label>I agree</label></span></StyledInput>
+
+    
+      <StyledInput
+        type="checkbox"
+        name="disagree"
+      ><label>I do NOT agree</label></StyledInput>
+      
     </StyledContainer>
   );
 };

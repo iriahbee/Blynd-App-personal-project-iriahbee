@@ -55,11 +55,15 @@ const LoginButton = styled.button`
   	const signUpPage = () => {
       history.push("../signup/Signup.js")
     }
+
+    const logInPage = () => {
+      history.push("../signin/Signin.js")
+    }
   
   return (
     <AccessibilityContainer>
       <RegisterButton onClick={signUpPage}>Register</RegisterButton>
-      <LoginButton>Login</LoginButton>
+      <LoginButton onClick={logInPage}>Login</LoginButton>
     </AccessibilityContainer>
   );
 }

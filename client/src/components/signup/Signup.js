@@ -39,15 +39,13 @@ function SignUpForm() {
     password: "",
     confpassword: "",
     country: "",
-    state: "",
     city: "",
     gender: "",
     job: "",
     profile_photo: "",
     profile_description: "",
     interest: "",
-    showmale: "",
-    showfemale: "",
+    preference: "",
     search_distance: "",
   });
 
@@ -64,6 +62,12 @@ function SignUpForm() {
       return <Terms formData={formData} setFormData={setFormData} />;
     }
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(formData)
+
+}
 
   return (
     <StyledContainer>
@@ -91,8 +95,10 @@ function SignUpForm() {
                 setPage((currPage) => currPage + 1);
               }
             }}
+            onSubmit={handleSubmit}
           >
-            {page === FormTitles.length - 1 ? "Submit" : "Next"}
+            {page === FormTitles.length - 1 ? "Submit" : "Next"};
+    
           </Button>
         </FormFooter>
       </FormContainer>
