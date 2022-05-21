@@ -1,15 +1,19 @@
-import { React, useState } from "react";
+import { React, useState} from "react";
 import styled from "styled-components";
 import UserDetails from "./UserDetails";
 import PersonalDetails from "./PersonalDetails";
 import ProfileDetails from "./ProfileDetails";
 import Terms from "./Terms";
 import Header from "./Header";
-import Button from "../theme/button";
+import ThemeButton from "../theme/button";
+import {postUser} from "../../services/profileService";
+import Swal from 'sweetalert2';
+import {useHistory} from 'react-router-dom'
+
+
 
 const StyledContainer = styled.div`
   display: flex;
-  background: papayawhip;
   flex-direction: column;
   align-content: center;
   justify-content: center;
@@ -21,14 +25,20 @@ const StyledContainer = styled.div`
 
 const FormContainer = styled.div`
   display: block;
-  background: greenyellow;
+  background: pink;
 `;
 
-const FormHead = styled.div``;
+const FormHead = styled.div`
+margin-top: 5%;
+`;
 
 const FormBody = styled.div``;
 
-const FormFooter = styled.div``;
+const FormFooter = styled.div`
+ margin-top: 10%;
+ margin-bottom: 2%;
+ 
+`;
 
 function SignUpForm() {
   const [page, setPage] = useState(0);
@@ -44,7 +54,7 @@ function SignUpForm() {
     job: "",
     profile_photo: "",
     profile_description: "",
-    interest: "",
+    interest:[],
     preference: "",
     search_distance: "",
   });
@@ -63,11 +73,21 @@ function SignUpForm() {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log(formData)
 
-}
+ let history = useHistory();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+    postUser(formData);
+    Swal.fire('Awesome!', "You're successfully registered!", 'success').then(
+      (result) => {
+        if (result.isConfirmed || result.isDismissed) {
+          history.push('/apphome');
+        }
+      }
+    );
+  };
 
   return (
     <StyledContainer>
@@ -78,28 +98,24 @@ function SignUpForm() {
         </FormHead>
         <FormBody>{PageDisplay()}</FormBody>
         <FormFooter>
-          <Button
+          <ThemeButton
             disabled={page === 0}
             onClick={() => {
               setPage((currPage) => currPage - 1);
             }}
+            style = {{marginRight: "10%"}}
           >
             Prev
-          </Button>
-          <Button
-            onClick={() => {
-              if (page === FormTitles.length - 1) {
-                alert("FORM SUBMITTED");
-                console.log(formData);
-              } else {
-                setPage((currPage) => currPage + 1);
-              }
-            }}
-            onSubmit={handleSubmit}
-          >
-            {page === FormTitles.length - 1 ? "Submit" : "Next"};
-    
-          </Button>
+          </ThemeButton>
+          {page === FormTitles.length - 1 ? (
+            <ThemeButton onClick={handleSubmit} onSubmit={handleSubmit}>
+              Submit
+            </ThemeButton>
+          ) : (
+            <ThemeButton onClick={() => setPage((currPage) => currPage + 1)} style = {{marginLeft: "10%"}}>
+              Next
+            </ThemeButton>
+          )}
         </FormFooter>
       </FormContainer>
     </StyledContainer>

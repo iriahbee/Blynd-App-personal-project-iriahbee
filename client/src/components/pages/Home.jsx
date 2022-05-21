@@ -95,7 +95,7 @@ function Home() {
   const history = useHistory();
 
   const signUpPage = () => {
-    history.push("../signup/Signup.js");
+    history.push("/Signup");
   };
   return (
     <GSBContainer>

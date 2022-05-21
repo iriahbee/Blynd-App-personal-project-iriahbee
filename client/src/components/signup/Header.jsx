@@ -1,5 +1,4 @@
 import React from 'react';
-import Progress from './Progress';
 import Logo from './Logo'
 
 const Header = () => (
@@ -7,8 +6,8 @@ const Header = () => (
    <Logo/>
    </section>
   <div>
-    <h1>Multi Step Registration</h1>
-    <Progress />
+    <h1 style = {{color: "#a30505"}}>Sign Up & Trust the Process</h1>
+ <div></div>
   </div>
   </>
 );

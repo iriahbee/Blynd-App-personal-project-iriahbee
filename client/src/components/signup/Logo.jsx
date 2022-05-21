@@ -4,10 +4,10 @@ import LogoM from "./images/LogoNW.svg";
 
 
 const LogoImg = styled.div`
-  background-color: lightcyan;
   width: 400px;
   height: 250px;
   display: flex;
+  object-fit:contain;
   justify-content: center;
   flex-direction: column;
   align-content: center;
@@ -15,8 +15,8 @@ const LogoImg = styled.div`
   position: relative;
   margin-bottom: -10%;
   img {
-    width: 50%;
-    height: 50%;
+    width: 40%;
+    height: 40%;
     cursor: pointer;
   }
 `;
@@ -31,4 +31,4 @@ const LogoImg = styled.div`
   );
 }
 
-export default Logo
+export default Logo;

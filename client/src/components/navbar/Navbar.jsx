@@ -1,11 +1,11 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
-import Logo from "./logo.js";
-import  Accessibility  from "./accessibility.js";
-import  NavLinks  from "./navLinks.js";
-import  DeviceSize  from "./responsive.js";
-import MobileNavLinks  from "./mobileNavLinks.js";
+import Logo from "./logo.jsx";
+import  Accessibility  from "./accessibility.jsx";
+import  NavLinks  from "./navLinks.jsx";
+import  DeviceSize  from "./responsive.jsx";
+import MobileNavLinks  from "./mobileNavLinks.jsx";
 
 const NavbarContainer = styled.div`
   width: 100%;
