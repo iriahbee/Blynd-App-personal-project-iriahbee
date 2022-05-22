@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Profile = mongoose.model("profiles");
 
 const profileRoutes = (app) => {
-  app.get(`/api/profile`, async (req, res) => {
+  app.get(`/profile`, async (req, res) => {
     const profiles = await Profile.find();
  console.log(profiles)
     return res.status(200).send(profiles);
