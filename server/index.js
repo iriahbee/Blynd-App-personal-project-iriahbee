@@ -1,5 +1,5 @@
 require("dotenv").config();
-
+const cors = require('cors')
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -15,6 +15,10 @@ mongoose.connect(process.env.DATABASE_CONNECTION_STRING, {
   useNewUrlParser: true,
 });
 
+app.use(cors({
+  methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
+}));
+
 app.use(bodyParser.json());
 
 // IMPORT YOUR API ROUTES HERE
@@ -22,10 +26,9 @@ app.use(bodyParser.json());
 // It's importing and using everything from the profilesRoutes.js file and also passing app as a parameter for profileRoutes to use
 require("./routes/profilesRoutes")(app); 
 
-const {generateUser} = require("./CreateUser")
-generateUser();
 //CREATING USER
-//require("./CreateUser").default
+// const {generateUser} = require("./CreateUser")
+// generateUser();
 
 
 const PORT = process.env.PORT;
