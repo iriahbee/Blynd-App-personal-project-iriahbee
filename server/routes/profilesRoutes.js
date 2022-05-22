@@ -1,21 +1,39 @@
 const mongoose = require("mongoose");
-const Profile = mongoose.model("profiles");
+const Users = mongoose.model("profiles");
+const cors = require('cors')
+
+
 
 const profileRoutes = (app) => {
-  app.get(`/profile`, async (req, res) => {
-    const profiles = await Profile.find();
- console.log(profiles)
-    return res.status(200).send(profiles);
+  app.get(`/users`, async (req, res) => {
+    const User = await Users.find();
+    res.setHeader('Content-Type', 'application/json');
+    return res.status(200).send(JSON.stringify(User));
   });
 
-  app.post(`/api/profile`, async (req, res) => {
-    const profile = await Profile.create(req.body);
-
+  app.post(`/user`, cors(), async (req, res) => {
+    const User = await Users.create(req.body);
+     console.log(User)
     return res.status(201).send({
       error: false,
-      profile,
+      User,
     });
   });
+
+  app.post("/Login",cors(), async (req,res)=>{
+    const {email,password} =req.body;
+    Users.findOne({email:email},(err,user)=>{
+        if(user){
+           if(password === user.password){
+               res.send({message:"login sucess",user:user})
+           }else{
+               res.send({message:"wrong credentials"})
+           }
+        }else{
+            res.send("not register")
+        }
+    })
+});
 
   app.put(`/api/profile/:id`, async (req, res) => {
     const { id } = req.params;

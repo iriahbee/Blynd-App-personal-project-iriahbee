@@ -1,18 +1,26 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const profileSchema = new Schema({
+const usersSchema = new Schema({
   email: String, 
   password: String,
+  phoneNo:  String ,
   full_name: String,
-  age: Number,
+  birth_date: String ,
   gender: String,
-  location: String,
-  job: String,
-  profile_description: String, 
-  profile_photo: String, 
+  country: String,
+  city:String,
+  job:  String,
+  profile_description: String,
+  interest: [String], 
+  profile_photo: String,
+  search_distance: String,
+  preference: String, 
 });
 
-mongoose.model("profiles", profileSchema);
+
+
+
+mongoose.model("profiles", usersSchema);
 
 
